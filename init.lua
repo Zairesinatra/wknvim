@@ -376,6 +376,8 @@ local on_attach = function(_, bufnr)
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+
+  -- vim.lsp.buf.code_action 是一个 LSP（Language Server Protocol）的 API，用于获取与当前光标位置相关的代码操作 Code Action
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
@@ -540,4 +542,5 @@ vim.opt.linebreak = true
 -- 指定最大文本宽度为80个字符
 vim.opt.textwidth = 80
 
+vim.api.nvim_set_keymap("n", "<C-s>", ":lua vim.lsp.buf.format()<CR>", { noremap = true })
 
